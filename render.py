@@ -62,5 +62,8 @@ if __name__ == "__main__":
 
     # Initialize system state (RNG)
     safe_state(args.quiet)
-
+    os.makedirs('output')
+    torch.save(model, 'output/model.pt')
+    torch.save(pipeline, 'output/pipeline.pt')
+    torch.save(args, 'output/args.pt')
     render_sets(model.extract(args), args.iteration, pipeline.extract(args), args.skip_train, args.skip_test)
