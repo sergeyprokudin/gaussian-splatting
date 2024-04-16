@@ -62,7 +62,7 @@ if __name__ == "__main__":
 
     # Initialize system state (RNG)
     safe_state(args.quiet)
-    os.makedirs('output')
+    os.makedirs('output', exist_ok=True)
     torch.save(model, 'output/model.pt')
     torch.save(pipeline, 'output/pipeline.pt')
     torch.save(args, 'output/args.pt')
